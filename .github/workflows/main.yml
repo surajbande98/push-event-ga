@@ -4,6 +4,12 @@ on:
   pull_request:
     types: 
       - opened
+    branches:
+      - main
+      - dev-* # dev-new, dev-this-is
+      - feat/** #feat/new, feat/new/button
+    paths-ignore:
+      - '.github/worflows/*'
   workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
@@ -14,8 +20,8 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: test code
-        run: npm run test
+      - name: lint code
+        run: npm run lint
       - name: Build code
         run:  npm run build
       - name: Deploy project
