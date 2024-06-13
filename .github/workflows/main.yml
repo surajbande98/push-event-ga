@@ -1,5 +1,6 @@
 name: GitHub Actions Demo
 on: 
+  workflow_dispatch:
   push:
   pull_request:
     types: 
@@ -10,7 +11,6 @@ on:
       - feat/** #feat/new, feat/new/button
     paths-ignore:
       - '.github/worflows/*'
-  workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
